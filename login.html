@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Inicio de sesión
+{% endblock %}
+
+{% block contenido %}
+
+<section class="tarjeta">
+
+    <h2>Iniciar sesión</h2>
+
+    {% if aviso %}
+        <p class="error">{{ aviso }}</p>
+    {% endif %}
+
+    <form method="POST">
+
+        <label for="usuario">Usuario</label>
+
+        <input
+            type="text"
+            id="usuario"
+            name="usuario"
+            required
+        >
+
+        <label for="contrasena">Contraseña</label>
+
+        <input
+            type="password"
+            id="contrasena"
+            name="contrasena"
+            required
+        >
+
+        <button type="submit">
+            Ingresar
+        </button>
+
+    </form>
+
+</section>
+
+{% endblock %}
