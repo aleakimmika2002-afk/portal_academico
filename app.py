@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, make_response
+from flask import Flask, render_template, request, redirect, url_for, session, make_response, flash
 
 portal = Flask(__name__)
 portal.secret_key = "clave_portal_742"
@@ -49,7 +49,7 @@ def acceso_usuario():
             session["usuario_actual"] = usuario_ingresado
 
             respuesta = make_response(
-                redirect(url_for("pagina_inicio"))
+                redirect(url_for("lista_cursos"))
             )
 
             respuesta.set_cookie(
@@ -82,16 +82,9 @@ def lista_cursos():
 
 @portal.route("/logout")
 def cerrar_sesion():
-
-    session.pop("usuario_actual", None)
-
-    respuesta = make_response(
-        redirect(url_for("pagina_inicio"))
-    )
-
-    respuesta.delete_cookie("usuario_preferido")
-
-    return respuesta
+    session.clear()
+    flash("Sesión cerrada correctamente.")
+    return redirect(url_for("pagina_inicio"))
 
 @portal.route("/perfil")
 def datos_perfil():
