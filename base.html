@@ -33,6 +33,13 @@
         {% endblock %}
 
     </main>
+    {% with mensajes = get_flashed_messages() %}
+    {% if mensajes %}
+        {% for mensaje in mensajes %}
+            <p class="mensaje">{{ mensaje }}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
 
 </body>
 
