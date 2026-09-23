@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Inicio
+{% endblock %}
+
+{% block contenido %}
+
+<section class="tarjeta">
+
+    {% if visitante %}
+
+        <h2>Bienvenido nuevamente, {{ visitante }}.</h2>
+
+        <p>
+            Nos alegra tenerte nuevamente en el Portal Académico.
+        </p>
+
+        <a class="boton"
+           href="{{ url_for('quitar_cookie') }}">
+            Eliminar usuario guardado
+        </a>
+
+    {% else %}
+
+        <h2>Bienvenido al Portal Académico.</h2>
+
+        <p>
+            Ingresa al sistema para consultar tus cursos y perfil.
+        </p>
+
+        <a class="boton"
+           href="{{ url_for('acceso_usuario') }}">
+            Iniciar sesión
+        </a>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}
