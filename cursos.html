@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Cursos
+{% endblock %}
+
+{% block contenido %}
+
+<section class="tarjeta">
+
+    <h2>Cursos disponibles</h2>
+
+    <p>
+        Estudiante: <strong>{{ usuario }}</strong>
+    </p>
+
+</section>
+
+{% for curso in cursos %}
+
+<section class="curso">
+
+    <h3>{{ curso.nombre }}</h3>
+
+    <p>
+        Docente: {{ curso.docente }}
+    </p>
+
+    <p>
+        Cupos disponibles: {{ curso.cupos }}
+    </p>
+
+    {% if curso.cupos > 0 %}
+
+        <p class="disponible">
+            Curso disponible
+        </p>
+
+    {% else %}
+
+        <p class="agotado">
+            Curso lleno
+        </p>
+
+    {% endif %}
+
+</section>
+
+{% endfor %}
+
+{% endblock %}

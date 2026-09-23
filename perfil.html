@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Perfil
+{% endblock %}
+
+{% block contenido %}
+
+<section class="tarjeta">
+
+    <h2>Perfil del estudiante</h2>
+
+    <p>
+        Usuario: <strong>{{ usuario }}</strong>
+    </p>
+
+    <p>
+        Estado: Sesión iniciada
+    </p>
+
+    <a class="boton"
+       href="{{ url_for('cerrar_sesion') }}">
+        Cerrar sesión
+    </a>
+
+</section>
+
+{% endblock %}
